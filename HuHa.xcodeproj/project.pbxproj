@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7636C5EF22531B0D00EA4CEB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7636C5EE22531B0D00EA4CEB /* Utils.swift */; };
 		76BAAD662248B6F40005E3BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BAAD652248B6F40005E3BC /* AppDelegate.swift */; };
 		76BAAD682248B6F40005E3BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BAAD672248B6F40005E3BC /* ViewController.swift */; };
 		76BAAD6D2248B6F40005E3BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76BAAD6C2248B6F40005E3BC /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7636C5EE22531B0D00EA4CEB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		76BAAD622248B6F40005E3BC /* HuHa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuHa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76BAAD652248B6F40005E3BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76BAAD672248B6F40005E3BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				76BAAD6C2248B6F40005E3BC /* Assets.xcassets */,
 				76BAAD6E2248B6F40005E3BC /* LaunchScreen.storyboard */,
 				76BAAD712248B6F40005E3BC /* Info.plist */,
+				7636C5EE22531B0D00EA4CEB /* Utils.swift */,
 			);
 			path = HuHa;
 			sourceTree = "<group>";
@@ -133,6 +136,7 @@
 			files = (
 				76BAAD682248B6F40005E3BC /* ViewController.swift in Sources */,
 				76BAAD662248B6F40005E3BC /* AppDelegate.swift in Sources */,
+				7636C5EF22531B0D00EA4CEB /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

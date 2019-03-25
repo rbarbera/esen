@@ -54,11 +54,15 @@ class ViewController: UIViewController {
         amount.keyboardType = .decimalPad
         error.textColor = .red
         error.numberOfLines = 0
-        done.setTitleColor(.blue, for: .normal)
-        done.setTitleColor(.lightGray, for: .disabled)
+        done.setTitleColor(.white, for: .normal)
+        done.setBackgroundImage(UIImage.solid(.blue), for: .normal)
+        done.setTitleColor(.white, for: .disabled)
+        done.setBackgroundImage(UIImage.solid(.lightGray), for: .normal)
+        done.layer.cornerRadius = 8
+        done.clipsToBounds = true
 
         prompt.text = "Amount"
-        done.setTitle("Send Money", for: .normal)
+        done.setTitle("Withdraw", for: .normal)
         
         [prompt, amount, error, stack, done].forEach({ $0.translatesAutoresizingMaskIntoConstraints = false })
 
@@ -68,7 +72,8 @@ class ViewController: UIViewController {
             stack.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
             done.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             done.leftAnchor.constraint(equalTo: stack.leftAnchor),
-            done.rightAnchor.constraint(equalTo: stack.rightAnchor)
+            done.rightAnchor.constraint(equalTo: stack.rightAnchor),
+            done.heightAnchor.constraint(equalToConstant: 42)
             ])
     }
     
@@ -78,50 +83,6 @@ class ViewController: UIViewController {
     }
 
     func onAmount(_ input: String?) {
-        guard let string = input, !string.isEmpty else {
-            error.text = nil
-            done.isEnabled = false
-            return
-        }
-        
-        guard let value = Int(string) else {
-            error.text = "<\(string)> is NaN"
-            done.isEnabled = false
-            return
-        }
-        
-        guard value > 0 else {
-            error.text = "amount should be positive"
-            done.isEnabled = false
-            return
-        }
-        
-        guard value <= myAccount.balance else {
-            error.text = "You only have \(myAccount.balance) in your account"
-            done.isEnabled = false
-            return
-        }
-
-        guard value <= myAccount.dailyLimit else {
-            error.text = "You will be over your daily limit"
-            done.isEnabled = false
-            return
-        }
-        
-        guard value % myATM.minFraction == 0 else {
-            error.text = "Amount should be multiple of \(myATM.minFraction)"
-            done.isEnabled = false
-            return
-        }
-        
-        guard value <= myATM.available else {
-            error.text = "Not enough cash on this ATM"
-            done.isEnabled = false
-            return
-        }
-        
-        error.text = nil
-        done.isEnabled = true
     }
 
 }

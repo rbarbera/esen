@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         done.setTitleColor(.white, for: .normal)
         done.setBackgroundImage(UIImage.solid(.blue), for: .normal)
         done.setTitleColor(.white, for: .disabled)
-        done.setBackgroundImage(UIImage.solid(.lightGray), for: .normal)
+        done.setBackgroundImage(UIImage.solid(.lightGray), for: .disabled)
         done.layer.cornerRadius = 8
         done.clipsToBounds = true
 
@@ -83,6 +83,40 @@ class ViewController: UIViewController {
     }
 
     func onAmount(_ input: String?) {
+        done.isEnabled = false
+
+        guard let str = input, !str.isEmpty else {
+            error.text = nil
+            return
+        }
+
+        guard let number = Int(str) else {
+            error.text = "<\(str)> is NaN"
+            return
+        }
+
+        guard number <= myAccount.balance else {
+            error.text = "You only have \(myAccount.balance) in your account"
+            return
+        }
+
+        guard number <= myAccount.dailyLimit else {
+            error.text = "\(number) is over your daily limit of \(myAccount.dailyLimit)"
+            return
+        }
+
+        guard number <= myATM.available else {
+            error.text = "Not enough money left"
+            return
+        }
+
+        guard number % myATM.minFraction == 0 else {
+            error.text = "Amount should me multiple of \(myATM.minFraction)"
+            return
+        }
+
+        done.isEnabled = true
+        error.text = nil
     }
 
 }

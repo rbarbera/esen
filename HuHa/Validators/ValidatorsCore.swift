@@ -71,6 +71,7 @@ struct Validator<T,U: Equatable> {
 //-------------------------------
 
 precedencegroup ApplyPrecedence {
+    higherThan: AssignmentPrecedence
     associativity: left
 }
 
@@ -86,8 +87,8 @@ precedencegroup ParallelPrecedence {
 
 infix operator |>: ApplyPrecedence
 infix operator >>>: SequentialPrecedence
-infix operator >&>: ParallelPrecedence
-infix operator >|>: ParallelPrecedence
+infix operator <&>: ParallelPrecedence
+infix operator <|>: ParallelPrecedence
 
 func |><A,B>(_ a: A, f: (A) -> B) -> B {
     return f(a)
@@ -101,10 +102,17 @@ func >>><A,B,C>(_ lhs: Validator<A,B>, _ rhs: Validator<B,C>) -> Validator<A,C> 
     return lhs.then(rhs)
 }
 
-func >&><A,B>(_ lhs: Validator<A,B>, _ rhs: Validator<A,B>) -> Validator<A,B> {
+func <&><A,B>(_ lhs: Validator<A,B>, _ rhs: Validator<A,B>) -> Validator<A,B> {
     return lhs.and(rhs)
 }
 
-func >|><A,B>(_ lhs: Validator<A,B>, _ rhs: Validator<A,B>) -> Validator<A,B> {
+func <|><A,B>(_ lhs: Validator<A,B>, _ rhs: Validator<A,B>) -> Validator<A,B> {
     return lhs.or(rhs)
+}
+
+//-----------------------------------------------
+
+extension Validator where T == Int, U == Int {
+    static let valid = Validator<Int,Int> { i in return .success(i) }
+    static let invalid = Validator<Int,Int> { _ in return .failure([]) }
 }

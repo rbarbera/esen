@@ -18,9 +18,6 @@ struct ATM {
     let available: Int
 }
 
-let myAccount = Account(balance: 10_000, dailyLimit: 5_000)
-let myATM = ATM(fractions: [20,50], available: 3_000)
-
 extension Account {
     var validator: Validator<Int, Int> {
         return lessOrEqual(dailyLimit).with("Amount is over your dailyLimit \(dailyLimit)")
@@ -28,17 +25,12 @@ extension Account {
     }
 }
 
-extension Validator where T == Int, U == Int {
-    static let valid = Validator<Int, Int> { i in return .success(i) }
-    static let invalid = Validator<Int, Int> { _ in return .failure([]) }
-}
-
 extension ATM {
     var validator: Validator<Int, Int> {
-        let fv = fractions.map(divisible(by:)).reduce(.invalid, >|>)
+        let fv = fractions.map(divisible(by:)).reduce(.invalid, <|>)
         let pieces = fractions.map({"\($0)"}).joined(separator: ",")
         
         return lessOrEqual(available).with("Not enough money left")
-            >&> fv.with("is not divisible by \(pieces)")
+            <&> fv.with("is not divisible by \(pieces)")
     }
 }

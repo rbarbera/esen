@@ -14,7 +14,16 @@ class ViewController: UIViewController {
     let error = UILabel()
     let done = UIButton()
     
-    let model = ViewModel()
+    let model: ViewModel
+    
+    init(model: ViewModel) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Can't be used without ViewModel")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

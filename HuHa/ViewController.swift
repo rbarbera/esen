@@ -77,7 +77,7 @@ class ViewController: UIViewController {
             error.text = nil
             done.isEnabled = true
         case .failure(let e):
-            error.text = String(describing: e)
+            error.text = e.map({ String(describing: $0) }).joined(separator: "\n")
             done.isEnabled = false
         }
     }

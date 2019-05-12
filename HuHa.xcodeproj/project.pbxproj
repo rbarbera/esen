@@ -10,6 +10,8 @@
 		7636C5EF22531B0D00EA4CEB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7636C5EE22531B0D00EA4CEB /* Utils.swift */; };
 		765190332283FFFF00C8F7BD /* Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765190322283FFFF00C8F7BD /* Domain.swift */; };
 		765190352284002300C8F7BD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765190342284002300C8F7BD /* ViewModel.swift */; };
+		765540DD228834EB00C180E9 /* ValidatorsCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765540DC228834EB00C180E9 /* ValidatorsCore.swift */; };
+		765540DF2288352700C180E9 /* ValidatorsDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765540DE2288352700C180E9 /* ValidatorsDomain.swift */; };
 		76BAAD662248B6F40005E3BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BAAD652248B6F40005E3BC /* AppDelegate.swift */; };
 		76BAAD682248B6F40005E3BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BAAD672248B6F40005E3BC /* ViewController.swift */; };
 		76BAAD6D2248B6F40005E3BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76BAAD6C2248B6F40005E3BC /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 		7636C5EE22531B0D00EA4CEB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		765190322283FFFF00C8F7BD /* Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
 		765190342284002300C8F7BD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		765540DC228834EB00C180E9 /* ValidatorsCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorsCore.swift; sourceTree = "<group>"; };
+		765540DE2288352700C180E9 /* ValidatorsDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorsDomain.swift; sourceTree = "<group>"; };
 		76BAAD622248B6F40005E3BC /* HuHa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuHa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76BAAD652248B6F40005E3BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76BAAD672248B6F40005E3BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		765540DB228834D900C180E9 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				765540DC228834EB00C180E9 /* ValidatorsCore.swift */,
+				765540DE2288352700C180E9 /* ValidatorsDomain.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
 		76BAAD592248B6F40005E3BC = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +71,7 @@
 		76BAAD642248B6F40005E3BC /* HuHa */ = {
 			isa = PBXGroup;
 			children = (
+				765540DB228834D900C180E9 /* Validators */,
 				765190322283FFFF00C8F7BD /* Domain.swift */,
 				765190342284002300C8F7BD /* ViewModel.swift */,
 				76BAAD672248B6F40005E3BC /* ViewController.swift */,
@@ -140,11 +154,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				765540DF2288352700C180E9 /* ValidatorsDomain.swift in Sources */,
 				765190352284002300C8F7BD /* ViewModel.swift in Sources */,
 				76BAAD682248B6F40005E3BC /* ViewController.swift in Sources */,
 				76BAAD662248B6F40005E3BC /* AppDelegate.swift in Sources */,
 				7636C5EF22531B0D00EA4CEB /* Utils.swift in Sources */,
 				765190332283FFFF00C8F7BD /* Domain.swift in Sources */,
+				765540DD228834EB00C180E9 /* ValidatorsCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
